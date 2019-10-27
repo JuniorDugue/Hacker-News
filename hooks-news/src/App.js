@@ -15,11 +15,15 @@ export default function App() {
   //     });
   // }, []);
 
-  useEffect(async  () => {
-    const response = await axios
-      .get("http://hn.algolia.com/api/v1/search?query=reacthooks")
-      setResults(response.data.hits)
+  useEffect(() => {
+   getResults();
   }, []);
+
+const getResults = async () => {
+  const response = await axios
+  .get("http://hn.algolia.com/api/v1/search?query=reacthooks")
+  setResults(response.data.hits)
+}
 
   return (
     <>
